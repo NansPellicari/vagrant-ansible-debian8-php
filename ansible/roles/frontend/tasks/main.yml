@@ -1,0 +1,13 @@
+---
+  - name: install bower
+    npm: name=bower global=yes
+
+  - name: install grunt
+    npm: name=grunt global=yes
+
+  - name: install grunt-cli
+    npm: name=grunt-cli global=yes
+
+  - name: Install sass
+    gem: name=sass state=latest
+    sudo: yes

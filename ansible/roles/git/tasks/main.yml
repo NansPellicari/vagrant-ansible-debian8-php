@@ -1,0 +1,24 @@
+---
+- name: Install Git
+  sudo: yes
+  apt:  pkg=git state=latest
+
+- name: Clone Aliases
+  sudo: no
+  git: repo=git@github.com:NansPellicari/git-config.git
+       accept_hostkey=true
+       dest=/home/vagrant/git-config
+       version=master
+
+- name: Change gitconfig
+  sudo: no
+  template: src=gitconfig.tpl dest=/home/vagrant/.gitconfig
+
+- name: Change bashrc
+  blockinfile:
+    dest: "/home/vagrant/.bashrc"
+    marker: "# {mark} GIT BASH"
+    content: |
+      if [ -f ~/git-config/.bash_git ]; then
+        . ~/git-config/.bash_git
+      fi

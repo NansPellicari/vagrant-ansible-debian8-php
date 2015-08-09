@@ -1,0 +1,11 @@
+---
+  - name: Configure NodeJs
+    shell: curl -sL https://deb.nodesource.com/setup | bash -
+
+  - name: Install NodeJs
+    sudo: yes
+    apt:  pkg=nodejs state=latest
+
+  - name: Create symlink
+    sudo: yes
+    shell: ln -s /usr/bin/nodejs /usr/local/bin/node
