@@ -45,7 +45,7 @@
     - curl
     - sqlite
     - wget
-#    - rabbitmq
     - redis
     - frontend
+#    - rabbitmq
 #    - memcached

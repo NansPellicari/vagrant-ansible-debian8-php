@@ -1,4 +1,7 @@
 ---
+  - name: install bundler
+    npm: name=bundler global=yes
+
   - name: install bower
     npm: name=bower global=yes
 
@@ -8,6 +11,6 @@
   - name: install grunt-cli
     npm: name=grunt-cli global=yes
 
-  - name: Install sass
-    gem: name=sass state=latest
+  - name: install sass
     sudo: yes
+    gem: name=sass state=latest user_install=no
