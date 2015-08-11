@@ -47,6 +47,5 @@
     - sqlite
     - wget
     - redis
+    - java8-oracle
     - frontend
-#    - rabbitmq
-#    - memcached
