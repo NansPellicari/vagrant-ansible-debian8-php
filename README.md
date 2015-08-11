@@ -80,6 +80,11 @@ and additional applications/library. When the VM is done setting up, point
 your browser towards [http://10.10.15.150](http://10.10.15.150) and there you
 have it.
 
+#### avoiding password prompt on each vagrant up
+
+You have to modify your /etc/sudoers file
+check [this](http://docs.vagrantup.com/v2/synced-folders/nfs.html)
+
 #### Note
 
 If you're using Windows, you have to modify the `Vagrantfile` a little bit to

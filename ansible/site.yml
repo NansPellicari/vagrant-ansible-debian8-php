@@ -22,6 +22,7 @@
       - { name: redis, package: php5-redis }
       - { name: memcached, package: php5-memcached }
       - { name: sqlite, package: php5-sqlite }
+      - { name: imagick, package: php5-imagick }
     php_extensions:
       - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }
       - { name: "mongo", package: "pecl.php.net/mongo" }
