@@ -1,30 +1,25 @@
 ---
-- hosts: all
+- hosts: production
   sudo:  true
+  remote_user: admin
   vars:
     git_user_name: 'Vagrant'
     git_user_email: vagrant@mail.com
-    project_provisions: []
     doc_root: /var/www/web
     sys_packages:
       - mcrypt
     php_packages:
       - { name: dev, package: php5-dev }
       - { name: pear, package: php-pear }
-      - { name: xdebug, package: php5-xdebug }
       - { name: curl, package: php5-curl }
       - { name: mcrypt, package: php5-mcrypt }
       - { name: mysql, package: php5-mysql }
       - { name: redis, package: php5-redis }
-      - { name: memcached, package: php5-memcached }
-      - { name: sqlite, package: php5-sqlite }
       - { name: imagick, package: php5-imagick }
       - { name: intl, package: php5-intl }
       - { name: apcu, package: php5-apcu }
     php_extensions:
       - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }
-      - { name: "mongo", package: "pecl.php.net/mongo" }
-      - { name: "xhprof", package: "pecl.php.net/xhprof-beta" }
     php_ppa: php5
   roles:
     - yaegashi.blockinfile
@@ -35,17 +30,12 @@
     - php5-common
     - apc
     - composer
-    - phpunit
     - mysql
-    - mongo
     - git
     - symfony
     - nodejs
-    - capistrano
     - curl
-    - sqlite
     - wget
     - redis
     - java8-oracle
     - frontend
-    - project

@@ -18,10 +18,10 @@ server {
         rewrite     ^(.*)$ /app_dev.php/$1 last;
     }
 
-    location ~ ^/(app|app_dev|config)\.php(/|$) {
+    location ~ \.php(/|$) {
         fastcgi_pass            unix:/var/run/php5-fpm.sock;
-        fastcgi_buffers 16 16k;
-        fastcgi_buffer_size 32k;
+        fastcgi_buffers 32 32k;
+        fastcgi_buffer_size 64k;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include                 fastcgi_params;
         fastcgi_param           SCRIPT_FILENAME $document_root$fastcgi_script_name;

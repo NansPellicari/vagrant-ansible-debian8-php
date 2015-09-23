@@ -23,3 +23,15 @@
     sudo: yes
     apt:  pkg={{ item }} state=latest
     with_items: sys_packages
+
+  - stat: path=/etc/shorewall/rules
+    register: shorewall_rules
+
+  - name: Ruby change bashrc
+    blockinfile:
+      dest: "/home/{{ ansible_ssh_user }}/.bashrc"
+      marker: "# {mark} RUBY GEM IN PATH"
+      content: |
+        if which ruby >/dev/null && which gem >/dev/null; then
+            PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+        fi

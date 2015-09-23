@@ -1,4 +1,8 @@
 ---
   - name: Install capistrano
-    gem: name=capistrano state=latest
-    sudo: yes
+    gem: name={{ item }} state=latest
+    with_items:
+      - capistrano
+      - capistrano-composer
+      - capistrano-bower
+    sudo: no

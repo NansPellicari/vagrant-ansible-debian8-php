@@ -1,0 +1,5 @@
+---
+- name: projects provision
+  sudo: no
+  shell: "{{ item.command }} chdir={{ item.chdir }}"
+  with_items: project_provisions

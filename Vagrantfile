@@ -24,7 +24,8 @@ Vagrant.configure("2") do |config|
 
     # Provision the box
     config.vm.provision :ansible do |ansible|
-        ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
         ansible.playbook = "ansible/site.yml"
+        ansible.extra_vars = "@../ansible_vars.yml"
+  #      ansible.start_at_task = "projects provision"
     end
 end

@@ -7,16 +7,16 @@
   sudo: no
   git: repo=git@github.com:NansPellicari/git-config.git
        accept_hostkey=true
-       dest=/home/vagrant/git-config
+       dest=/home/{{ ansible_ssh_user }}/git-config
        version=master
 
 - name: Change gitconfig
   sudo: no
-  template: src=gitconfig.tpl dest=/home/vagrant/.gitconfig
+  template: src=gitconfig.tpl dest=/home/{{ ansible_ssh_user }}/.gitconfig
 
 - name: Change bashrc
   blockinfile:
-    dest: "/home/vagrant/.bashrc"
+    dest: "/home/{{ ansible_ssh_user }}/.bashrc"
     marker: "# {mark} GIT BASH"
     content: |
       if [ -f ~/git-config/.bash_git ]; then

@@ -1,0 +1,16 @@
+---
+  - name: Change APC config
+    sudo: yes
+    notify: restart php5-fpm
+    blockinfile:
+        dest: "/etc/php5/mods-available/apcu.ini"
+        marker: ""
+        content: |
+          apc.enabled=1
+          apc.shm_size=256M
+          apc.ttl=7200
+          apc.enable_cli=1
+          apc.gc_ttl=3600
+          apc.entries_hint=4096
+          apc.slam_defense=1
+          apc.serializer=igbinary
